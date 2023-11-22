@@ -22,34 +22,39 @@ int _putchar(char c)
  * print_char - writes the argument i.e. char to stdout
  * @args: argument to be printed i.e. char
  *
- * Return: Nothing.
+ * Return: the number of char i.e. 1
  */
-void print_char(va_list arg)
+int print_char(va_list arg)
 {
 	char c;
 
+	len = 0;
 	c = va_arg(arg, int);
 	_putchar(c);
+	return (1);
 }
 
 /**
  * print_str - print the argument i.e. str by one char at a time
  * @args: argument to be printed i.e. string
  *
- * Return: Nothing.
+ * Return: the number of char
  */
-void print_string(va_list arg)
+int print_string(va_list arg)
 {
-	int i;
+	int i, len;
 	char *str;
 
 	str = va_arg(arg, char *);
 	i = 0;
+	len = 0;
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
 		i++;
+		len++;
 	}
+	return (len);
 }
 
 /**

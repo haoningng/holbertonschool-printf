@@ -13,7 +13,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, j, len;
+	int i, j, len, printed;
 	va_list arg;
 
 	/* Declare a struct array for different print format  */
@@ -44,8 +44,8 @@ int _printf(const char *format, ...)
 			{
 				if (print_format[j].type == format[i + 1])
 				{
-					print_format[j].f(arg);
-					len++;
+					printed = print_format[j].f(arg);
+					len = len + printed;
 					i++;
 					break;
 				}
