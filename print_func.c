@@ -68,7 +68,7 @@ int print_string(va_list arg)
  */
 int print_int(va_list arg)
 {
-	int i, rev_i, minus, len;
+	long i, rev_i, minus, len;
 
 	i = va_arg(arg, int);
 	rev_i = 0;
