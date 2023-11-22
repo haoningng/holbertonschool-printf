@@ -55,14 +55,14 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
+				else if (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i +  1] != 'i' && format[i + 1] != '%')
+				{
+					/* No matching specifier, print '%'*/
+					_putchar('%');
+					len++;
+					break;
+				}
 				j++;
-			}
-			if(format[i+ 1] != 'c' && format[i+ 1] != 's' && format[i+ 1] != 'd' && format[i+ 1] != 'i' && format[i+ 1] != '%')
-			{
-				// No matching specifier, print '%'//
-				_putchar('%');
-				_putchar(format[i + 1]); //print whatever after the % sign
-				len = len + 2;
 			}
 		}
 		i++;
