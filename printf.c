@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 				{
 					if (print_format[j].type == 's')
 					{
-						len = len + 2;
+						len = len + 1;
 					}
 					print_format[j].f(arg);
 					len++;
