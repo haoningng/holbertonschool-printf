@@ -48,20 +48,20 @@ int _printf(const char *format, ...)
 			/* Check if we have reached '\0' in print_format.type */
 			while (print_format[j].type != '\0')
 			{
-				if (print_format[j].type == format[i + 1])
+				/* if there is nothing after % sign, print nothing */
+				if (format[i + 1] == '\0')
+				{
+					va_end(arg);
+					return (-1);
+				}
+				/* if we found a match */
+				else if (print_format[j].type == format[i + 1])
 				{
 					printed = print_format[j].f(arg);
 					len = len + printed;
 					i++;
 					break;
 				}
-				/* if there is nothing after % sign, print nothing */
-				else if (format[i + 1] == '\0')
-				{
-					break;
-					va_end(arg);
-					return (-1);;
-				}	
 				/* if no matching specifier, print % sign */
 				else if (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i +  1] != 'i' && format[i + 1] != '%')
 				{
