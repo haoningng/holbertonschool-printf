@@ -57,6 +57,12 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
+			if (print_format[j].type == '\0')
+			{
+				// No matching specifier, print '%'//
+				_putchar('%');
+				len++;
+			}
 		}
 		i++;
 	}
