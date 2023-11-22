@@ -96,7 +96,6 @@ int print_int(va_list arg)
 		j++;
 	}
 	strlength = strlen(str);
-	str[strlength] = '\0';
 	/* print the reversed integer backwards starting from last character*/
 	while (strlength >= 0)
 	{
