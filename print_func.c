@@ -28,7 +28,6 @@ int print_char(va_list arg)
 {
 	char c;
 
-	len = 0;
 	c = va_arg(arg, int);
 	_putchar(c);
 	return (1);
@@ -63,7 +62,7 @@ int print_string(va_list arg)
  *
  * Return: Nothing
  */
-void print_int(va_list arg)
+int print_int(va_list arg)
 {
 	int i, rev_i, minus;
 
@@ -93,6 +92,7 @@ void print_int(va_list arg)
 		_putchar(rev_i % 10 + '0');
 		rev_i = rev_i / 10;
 	}
+	return (0);
 }
 
 /**
@@ -101,7 +101,7 @@ void print_int(va_list arg)
  *
  * Return: Nothing
  */
-void print_decimal(va_list arg)
+int print_decimal(va_list arg)
 {
 	int i, rev_i, minus;
 
@@ -131,7 +131,9 @@ void print_decimal(va_list arg)
 		_putchar(rev_i % 10 + '0');
 		rev_i = rev_i / 10;
 	}
+	return (0);
 }
+
 
 /**
  * print_percent - prints a percentage sign
@@ -139,8 +141,9 @@ void print_decimal(va_list arg)
  *
  * Return: Nothing
  */
-void print_percent(va_list arg)
+int print_percent(va_list arg)
 {
 	(void) arg;
 	_putchar('%');
+	return (0);
 }

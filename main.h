@@ -12,15 +12,15 @@
 typedef struct print_type
 {
 	char type;
-	void (*f)(va_list arg);
+	int (*f)(va_list arg);
 } print_type;
 
 int _putchar(char c);
 int print_char(va_list arg);
 int print_string(va_list arg);
-void print_percent(va_list arg);
-void print_int(va_list arg);
-void print_decimal(va_list arg);
+int print_percent(va_list arg);
+int print_int(va_list arg);
+int print_decimal(va_list arg);
 int _printf(const char *format, ...);
 
 #endif
