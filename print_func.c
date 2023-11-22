@@ -80,6 +80,11 @@ int print_int(va_list arg)
 		minus = 1;
 		i = i * -1;
 	}
+	if (i == 0)
+	{
+		_putchar('0');
+		return (1); /* one character printed */
+	}
 	/* reverses the integer */
 	while (i > 0)
 	{
