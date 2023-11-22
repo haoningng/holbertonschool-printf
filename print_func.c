@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include "main.h"
@@ -68,10 +69,12 @@ int print_string(va_list arg)
  */
 int print_int(va_list arg)
 {
-	long i, rev_i, minus, len;
+	long i, j, minus, len, strlength;
+	char *str;
 
 	i = va_arg(arg, int);
-	rev_i = 0;
+	j = 0;
+	str = malloc(10);
 	len = 0;
 	minus = 0;
 	/* check if integer is negative */
@@ -85,14 +88,17 @@ int print_int(va_list arg)
 		_putchar('0');
 		return (1); /* one character printed */
 	}
-	/* reverses the integer */
+	/* reverses the integer into a string*/
 	while (i > 0)
 	{
-		rev_i = (rev_i * 10) + i % 10;
+		str[j] = ((i % 10) + '0');
 		i = i / 10;
+		j++;
 	}
-	/* print the reversed integer backwards starting from last digit*/
-	while (rev_i > 0)
+	strlength = strlen(str);
+	str[strlength] = '\0';
+	/* print the reversed integer backwards starting from last character*/
+	while (strlength >= 0)
 	{
 		if (minus == 1)
 		{
@@ -100,11 +106,12 @@ int print_int(va_list arg)
 			len++;
 			minus = 0;
 		}
-		_putchar(rev_i % 10 + '0');
+		_putchar(str[strlength - 1]);
+		strlength--;
 		len++;
-		rev_i = rev_i / 10;
 	}
-	return (len);
+	free(str);
+	return (len - 1);
 }
 
 /**
