@@ -55,9 +55,14 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
+				/* if there is nothing after % sign, print nothing */
+				else if (format[i + 1] == '\0')
+				{
+					break;
+				}
+				/* if no matching specifier, print % sign */
 				else if (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i +  1] != 'i' && format[i + 1] != '%')
 				{
-					/* No matching specifier, print '%'*/
 					_putchar('%');
 					len++;
 					break;
