@@ -59,7 +59,8 @@ int _printf(const char *format, ...)
 				else if (format[i + 1] == '\0')
 				{
 					break;
-					len = (-1);
+					va_end(arg);
+					return (-1);;
 				}	
 				/* if no matching specifier, print % sign */
 				else if (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'd' && format[i +  1] != 'i' && format[i + 1] != '%')
