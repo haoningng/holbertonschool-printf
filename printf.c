@@ -162,13 +162,14 @@ int _printf(const char *format, ...)
 	};
 	va_start(arg, format);
 	i = 0;
-	len = strlen(format);
+	len = 0;
 	/* Check if format is NULL and whether we have reached '\0' */
 	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			len++;
 		}
 		else if (format[i] == '%')
 		{
@@ -179,6 +180,7 @@ int _printf(const char *format, ...)
 				if (print_format[j].type == format[i + 1])
 				{
 					print_format[j].f(arg);
+					len++;
 					i++;
 					break;
 				}
