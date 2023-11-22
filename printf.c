@@ -25,6 +25,12 @@ int _printf(const char *format, ...)
 		{'%', print_percent},
 		{'\0', NULL}
 	};
+	/*add a check for a 'NULL' format string*/
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	va_start(arg, format);
 	i = 0;
 	len = 0;
