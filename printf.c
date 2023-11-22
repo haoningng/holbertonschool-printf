@@ -46,6 +46,7 @@ int _printf(const char *format, ...)
 				{
 					print_format[j].f(arg);
 					len++;
+					i++;
 					break;
 				}
 				j++;
