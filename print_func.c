@@ -45,6 +45,10 @@ int print_string(va_list arg)
 	char *str;
 
 	str = va_arg(arg, char *);
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
 	i = 0;
 	len = 0;
 	while (str[i] != '\0')
