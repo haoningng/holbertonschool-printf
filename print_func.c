@@ -64,14 +64,15 @@ int print_string(va_list arg)
  * print_int - prints an integer by one digit at a time
  * @args: argument to be printed i.e. integer
  *
- * Return: Nothing
+ * Return: Number of characters printed
  */
 int print_int(va_list arg)
 {
-	int i, rev_i, minus;
+	int i, rev_i, minus, len;
 
 	i = va_arg(arg, int);
 	rev_i = 0;
+	len = 0;
 	minus = 0;
 	/* check if integer is negative */
 	if (i < 0)
@@ -91,59 +92,21 @@ int print_int(va_list arg)
 		if (minus == 1)
 		{
 			_putchar('-'); /* print '-' sign if intger is neg */
+			len++;
 			minus = 0;
 		}
 		_putchar(rev_i % 10 + '0');
+		len++;
 		rev_i = rev_i / 10;
 	}
-	return (0);
+	return (len);
 }
-
-/**
- * print_decimal - prints a decimal
- * @args: argument to be printed i.e. decimal
- *
- * Return: Nothing
- */
-int print_decimal(va_list arg)
-{
-	int i, rev_i, minus;
-
-	i = va_arg(arg, int);
-	rev_i = 0;
-	minus = 0;
-	/* check if integer is negative */
-	if (i < 0)
-	{
-		minus = 1;
-		i = i * -1;
-	}
-	/* reverses the integer */
-	while (i > 0)
-	{
-		rev_i = (rev_i * 10) + i % 10;
-		i = i / 10;
-	}
-	/* print the reversed integer backwards starting from last digit*/
-	while (rev_i > 0)
-	{
-		if (minus == 1)
-		{
-			_putchar('-'); /* print '-' sign if intger is neg */
-			minus = 0;
-		}
-		_putchar(rev_i % 10 + '0');
-		rev_i = rev_i / 10;
-	}
-	return (0);
-}
-
 
 /**
  * print_percent - prints a percentage sign
  * @args: arguments
  *
- * Return: Nothing
+ * Return: 1 i.e. one character
  */
 int print_percent(va_list arg)
 {
