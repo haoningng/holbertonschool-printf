@@ -26,46 +26,32 @@ int _printf(const char *format, ...)
 	va_list arg;
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
-
 	va_start(arg, format);
 	i = len = 0;
 	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
 			_putchar(format[i]);
 			len++;
-		}
 		else if (format[i] == '%')
 		{
 			j = 0;
 			while (print_format[j].type != '\0')
 			{
 				if (format[i + 1] == '\0')
-				{
 					va_end(arg);
 					return (-1);
-				}
 				else if (print_format[j].type == format[i + 1])
-				{
 					printed = print_format[j].f(arg);
 					len = len + printed;
 					i++;
 					break;
-				}
-				else if (format[i + 1] != 'c' &&
-						format[i + 1] != 's' &&
-						format[i + 1] != 'd' &&
-						format[i + 1] != 'i' &&
-						format[i + 1] != '%')
-				{
+				else if (format[i + 1] != 'c' && format[i + 1] != 's' &&
+						format[i + 1] != 'd' && format[i + 1] != 'i' && format[i + 1] != '%')
 					_putchar('%');
 					len++;
 					break;
-				}
 				j++;
 			}
 		}
