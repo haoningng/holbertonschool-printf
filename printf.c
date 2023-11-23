@@ -1,8 +1,5 @@
 #include <stdarg.h>
 #include <stddef.h>
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
 #include "main.h"
 
 print_type print_format[] = {
