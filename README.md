@@ -67,11 +67,13 @@ The _printf() function writes output to the stdio, standard output stream, accor
 
 This function write the output under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output.
 
+
 **Format of the format string:**
 
 The format string is a character string, beginning and ending in its initial shift state, if any.  The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.  Each conversion specification is introduced by the character %, and ends with a conversion specifier.
 
 This  _printf function takes no flags and cannot handle field width, precision or length modifiers. The number of arguments following the format string must be equal or greater than the number of format specifiers in the format string.
+
 
 **Conversion specifiers**
 
@@ -85,6 +87,7 @@ The conversion specifiers and their meanings are:
 ```%i``` prints an int or integer
 
 ```%d``` prints a decimal number in base-10
+
 
 **RETURN VALUE**
 
