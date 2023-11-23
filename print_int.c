@@ -19,11 +19,8 @@ int print_int(va_list arg)
 	char *str;
 
 	i = va_arg(arg, int);
-	j = 0;
 	str = malloc(10);
-	len = 0;
-	minus = 0;
-	/* check if integer is negative */
+	j = len = minus = 0;
 	if (i < 0)
 	{
 		minus = 1;
@@ -34,7 +31,6 @@ int print_int(va_list arg)
 		_putchar('0');
 		return (1); /* one character printed */
 	}
-	/* reverses the integer into a string*/
 	while (i > 0)
 	{
 		str[j] = ((i % 10) + '0');
@@ -42,7 +38,6 @@ int print_int(va_list arg)
 		j++;
 	}
 	strlength = strlen(str);
-	/* print the reversed integer backwards starting from last character*/
 	while (strlength >= 0)
 	{
 		if (minus == 1)
