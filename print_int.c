@@ -38,7 +38,7 @@ int print_int(va_list arg)
 		j++;
 	}
 	strlength = strlen(str);
-	while (strlength >= 0)
+	while (strlength > 0)
 	{
 		if (minus == 1)
 		{
@@ -51,5 +51,5 @@ int print_int(va_list arg)
 		len++;
 	}
 	free(str);
-	return (len - 1);
+	return (len);
 }
