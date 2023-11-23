@@ -28,13 +28,12 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
-	for (i = len = 0; format != NULL && format[i] != '\0'; i++)
+	for (i = len = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
-			len++;
-		}
+			len++; }
 		else if (format[i] == '%')
 		{
 			for (j = 0; print_format[j].type != '\0'; j++)
