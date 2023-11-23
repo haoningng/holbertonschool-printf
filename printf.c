@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include "main.h"
 
-/* Declare a struct array for different print format  */ 
 print_type print_format[] = {
 	{'c', print_char},
 	{'s', print_string},
