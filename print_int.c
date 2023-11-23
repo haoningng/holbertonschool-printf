@@ -19,7 +19,11 @@ int print_int(va_list arg)
 	char *str;
 
 	i = va_arg(arg, int);
-	str = malloc(10);
+	str = malloc(6);
+	if (str == NULL)
+	{
+		return (-1);
+	}
 	j = len = minus = 0;
 	if (i < 0)
 	{
