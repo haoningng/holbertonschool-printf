@@ -33,30 +33,32 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 			_putchar(format[i]);
-			len++;
 		else if (format[i] == '%')
 		{
-			j = 0;
-			while (print_format[j].type != '\0')
+			for (j = 0; print_format[j].type != '\0'; j++)
 			{
 				if (format[i + 1] == '\0')
+				{
 					va_end(arg);
 					return (-1);
+				}
 				else if (print_format[j].type == format[i + 1])
+				{
 					printed = print_format[j].f(arg);
 					len = len + printed;
 					i++;
 					break;
+				}
 				else if (format[i + 1] != 'c' && format[i + 1] != 's' &&
 						format[i + 1] != 'd' && format[i + 1] != 'i' && format[i + 1] != '%')
+				{
 					_putchar('%');
-					len++;
 					break;
-				j++;
+				}
 			}
 		}
 		i++;
 	}
 	va_end(arg);
-	return (len);
+	return (i + len);
 }
