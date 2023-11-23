@@ -8,7 +8,7 @@
 
 /**
  * print_percent - prints a percentage sign
- * @args: arguments
+ * @arg: arguments
  *
  * Return: 1 i.e. one character
  */

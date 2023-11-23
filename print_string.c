@@ -8,7 +8,7 @@
 
 /**
  * print_string - function to print a string
- * @args: argument to be printed i.e. string
+ * @arg: argument to be printed i.e. string
  *
  * Return: the number of char
  */

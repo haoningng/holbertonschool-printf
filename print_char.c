@@ -21,7 +21,7 @@ int _putchar(char c)
 
 /**
  * print_char - writes the argument i.e. char to stdout
- * @args: argument to be printed i.e. char
+ * @arg: argument to be printed i.e. char
  *
  * Return: the number of char i.e. 1
  */

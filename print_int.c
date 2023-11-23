@@ -9,7 +9,7 @@
 
 /**
  * print_int - prints an integer by one digit at a time
- * @args: argument to be printed i.e. integer
+ * @arg: argument to be printed i.e. integer
  *
  * Return: Number of characters printed
  */
